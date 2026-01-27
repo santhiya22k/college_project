@@ -15,7 +15,8 @@ const handleLogin = async (e: React.FormEvent) => {
 
   try {
     // Use the frontend environment variable for API base URL
-    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
     const res = await fetch(`${API_URL}/auth/login`, {
       method: "POST",

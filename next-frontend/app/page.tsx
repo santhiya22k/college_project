@@ -69,7 +69,7 @@ export default function Home() {
           </div>
           <div>
             <h4 className="font-bold mb-4">Contact</h4>
-            <p>Email: info@ourcollege.com</p>
+            <p>Email: info@ourcolleges.com</p>
             <p>Phone: +91 9876543210</p>
           </div>
         </div>

@@ -38,12 +38,12 @@ export default function SignupPage() {
       return;
     }
 
-    alert("Signup successful ✅");
+    alert("Signup successful ");
     router.push("/login");
 
   } catch (error) {
     console.error(error);
-    alert("Backend not running ❌");
+    alert("Backend not running ");
   }
 };
 

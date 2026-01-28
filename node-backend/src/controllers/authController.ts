@@ -4,16 +4,18 @@ import jwt from "jsonwebtoken";
 import { createUser, findUserByEmail } from "../models/user.model";
 
 export const signup = async (req: Request, res: Response) => {
-  const { name, email, password } = req.body;
+  try {
+    const { name, email, password } = req.body;
 
-  const hash = await bcrypt.hash(password, 10);
+    const hash = await bcrypt.hash(password, 10);
+    await createUser(name, email, hash);
 
-  await createUser(name, email, hash);
-
-  res.status(201).json({
-    message: "Account created successfully"
-  });
+    res.status(201).json({ message: "Account created successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Signup failed" });
+  }
 };
+
 
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;

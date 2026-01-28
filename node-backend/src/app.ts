@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/authroutes";
+import { db } from "./config/db";
 
 const app = express();
 
@@ -27,5 +28,10 @@ app.get("/", (req, res) => {
 
 // ✅ Routes
 app.use("/api/auth", authRoutes);
+
+(async () => {
+  await db.query("SELECT 1");
+  console.log("DB connected ✅");
+})();
 
 export default app;
